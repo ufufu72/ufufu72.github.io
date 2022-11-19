@@ -1,0 +1,2423 @@
+@use "reset";
+
+/* カラー設定 */
+$color_letter: #5f5a51;//footerに使用 ハンバーガー
+$color_main:#f6f0e4;
+$color_sub:#ffffff;
+$color_shipping_cost:#e8dfce;
+$color_banner1:#e3f2ef;//pc用nav hoverに使用
+$color_banner2:#6ec8b9;
+$color_bag:#419d96;
+$color_sp_header:#e84b9d;
+$color_buttton:#88773f;
+$color_button_hover:#7d786f; 
+$color_hover:#a9a8a8;
+
+
+/* フォント設定 */
+$font_en:'Abyssinica SIL', serif;
+$font_jp:'Noto Sans JP', sans-serif;
+
+/* ブレイクポイント設定 */
+$point_sp:480px;
+$point_sp2:650px;
+$point_tab:768px;
+$point_pc:960px;
+$point_wpc:1280px;
+
+
+@mixin sp{
+@media(min-width:$point_sp){
+ @content;
+}
+}
+
+@mixin sp2 {
+@media(min-width:$point_sp2){
+ @content; 
+}  
+}
+
+@mixin tab {
+@media(min-width:$point_tab){
+ @content; 
+}  
+}
+
+@mixin pc {
+@media(min-width:$point_pc){
+ @content; 
+}  
+}
+
+@mixin wpc {
+@media(min-width:$point_wpc){
+ @content; 
+}  
+}
+    
+
+html{
+scroll-behavior: smooth;    
+}
+
+body{
+background-color: $color_main;
+}
+
+/* モバイルファースト */
+
+/* Topページの設定 */
+
+/* header-sp */
+.header-sp{    
+height: 60px;
+align-items: center;
+background-color:$color_sp_header ;
+display: flex; 
+justify-content:space-between;
+.sp-company-name{
+width: 100%;    
+h1{        
+font:bold 19px $font_en;
+color: #ffffff;
+z-index: 1;
+text-align: center;
+margin-left: 84px;
+@include sp(){
+font-size: 26px; 
+}
+@include sp2(){
+font-size: 30px;    
+}
+@include tab(){
+font-size: 32px; 
+}
+}
+}
+.logo-wrapper{
+display: flex;
+justify-content:space-evenly;
+.search-logo-sp,.bag-logo-sp{
+width: 38px;
+height: 38px;
+margin-right: 4px;
+@include sp(){
+width: 40px;
+height: 40px;  
+margin-right: 10px;  
+}
+img{
+width: 100%;
+height: 100%;
+margin-bottom:10px;
+}  
+}
+}
+@include pc(){ 
+display: none;
+}    
+}  
+    
+/*sp検索 クリックしたら */
+.search-sp{
+display: none;    
+width: 100%;
+padding: 12px 20px;
+background-color: #ffffff;
+input{
+width: 100%;
+padding:18px 50px 12px ;
+font-family: $font_jp;
+text-align:left;
+outline: none;
+font-size: 20px; 
+color: #757575;
+border-bottom: 2px solid $color_sp_header;
+background: url(../img/search_sp_pc.svg) no-repeat left 8px center/28px;
+}
+#s-btn{//Xボタン
+width: 40px;
+height: 40px;    
+color: $color_letter;
+position: relative;
+top: -46px;
+right: -89%;
+background: url(../img/x_search.svg) no-repeat center center/16px;
+@include sp(){
+right:-92% ;   
+}
+@include sp2(){
+right:-93% ;    
+}
+@include tab(){
+right: -94%;
+}
+}
+@include pc(){
+display: none;
+}
+}
+
+
+
+/*共通 #g-nav-sp アコーディオン */
+#g-nav-sp{
+width: 325px;  
+height: 100vh;
+background-color: $color_main;
+border-right: 1px solid $color_shipping_cost;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 10000;
+padding: 50px 40px; 
+transform: translateX(-100%);
+transition: .4s;
+&.slide{
+transition: .4s;
+transform: translateX(0);
+}  
+a{
+color: $color_letter;
+} 
+.home-logo-sp{
+width: 32px;
+height: 32px;
+margin-bottom: 30px;    
+} 
+h2{
+color: $color_letter;
+font:bold 24px $font_en;
+margin: 30px 0;
+}
+li{
+margin-bottom: 30px;
+a{
+font: 20px $font_jp; 
+color: $color_letter;  
+}
+&:nth-of-type(n+2){
+border-bottom:2px solid $color_letter;
+}
+}
+@include pc(){ 
+display: none;
+}
+}
+
+
+/* ハンバーガーボタン */
+#btn{
+position: absolute;
+top:4px;
+left: 0;
+.hamburger-inner,.hamburger-inner::before,
+.hamburger-inner::after{
+background-color: #ffffff;
+}
+&.is-active{
+z-index: 10020;
+position: fixed;
+top: 0;
+left: 0;
+.hamburger-inner,
+.hamburger-inner::after{
+background-color:$color_letter;
+}
+}
+@include pc(){ 
+display: none;
+}  
+}
+
+
+/* sns ロゴ sp*/
+.sns-wrapper-sp{
+display: flex;
+margin-top: 50px;
+justify-content: center;
+img{
+width: 50px;
+height: 50px;
+padding:0 3px;
+@include sp(){
+margin-left: 4px
+}
+@include pc(){ 
+display: none;
+} 
+}
+}
+    
+/* symbol ロゴ sp*/
+.symbol-logo-sp{
+width: 100%;
+text-align: center;
+margin-top: 40px;
+img{
+width: 60px;
+height: 60px;
+margin-bottom: 10px;    
+}
+p{
+color: $color_letter; 
+font: 10px $font_en;  
+}
+@include pc(){ 
+display: none;
+}
+}
+/* ここまでアコーディオン */
+
+
+/* header-pc */
+.header-pc{ 
+display: none;
+@include pc(){
+display: block;    
+width: 100%;  
+height: 150px;
+background-color: $color_main;   
+}
+.header-wrapper{ 
+@include pc(){    
+display: flex;
+justify-content: space-between; 
+.symbol-logo-pc{
+text-align: left;
+width: 140px;
+height: 80px;
+margin: 10px 0 0 20px;
+img{
+width: 58%;
+height: 100%;
+margin: 0 0 10px 16px;  
+} 
+p{
+color: $color_letter;
+font:10px $font_en;
+text-indent: 2em; 
+}
+} 
+.company-name{   
+margin:40px 0 0 120px;      
+h1{
+color: $color_letter; 
+font:bold 38px $font_en;
+} 
+p{
+color: $color_letter; 
+font-family: $font_en;
+text-align: center;   
+}   
+}
+.guide{
+width: 300px; 
+margin: 6px 0 0 10px; 
+padding-left: 40px;
+ul{
+display: flex;
+a{
+color: $color_letter;
+font-family: $font_en; 
+border-right: 2px solid $color_letter;
+padding:2px 8px 0; 
+&:hover{
+cursor: pointer; 
+color:$color_hover;  
+}  
+}
+.bag-logo-pc{
+width: 36px;
+height: 36px;
+a{
+display: block;
+padding:2px 8px 0;
+&:hover{
+cursor: pointer;
+color: #ffffff;
+}
+}
+img{
+width: 100%;
+height: 100%;
+margin-bottom: 6px;
+}
+}
+}
+}
+@include wpc(){
+.company-name{    
+h1{
+font-size: 42px;    
+}    
+p{
+font-size: 18px;    
+}
+}
+}
+}
+}
+.search-pc{
+display: none;
+@include pc(){
+display: block;
+text-align:right;
+position: relative;
+top: -8vh;
+right: 20px;
+input{
+background: url(../img/search_sp_pc.svg) no-repeat left 8px center/22px;
+padding: 12px 0 12px 42px;
+margin-left: 10px;
+font-family: $font_jp;
+color: #757575;
+border: 1px solid #C9BFAC;
+background-color: #ffffff;
+font-size: 16px; 
+}
+}
+}
+}    
+
+/*共通 pc用nav */
+.g-nav-pc{
+display: none;
+@include pc(){
+display: block;
+width: 100%;
+height: 50px;
+line-height: 50px; 
+background-color: $color_shipping_cost;
+ul{
+display: flex;
+justify-content: center;
+align-items: center; 
+.nav-title{
+a{
+display: block;
+color: $color_letter;
+font:22px $font_jp;
+padding: 0 40px;
+height: 50px;
+line-height: 50px; 
+&:hover{
+background-color: $color_banner2;
+cursor: pointer;
+}
+}
+}
+.home-logo-pc{
+width: 50px;
+height: 50px;
+a{
+display: block;   
+&:hover{
+background-color: $color_banner2;
+cursor: pointer;
+}
+img{
+width: 80%;
+height: 80%;
+margin: 4px 0 5px 6px;
+}
+} 
+}
+}
+}
+}
+
+.nav-underline{ 
+background-color: #ffffff; 
+height: 12px;
+@include pc(){
+height: 4px;    
+}   
+}
+/* ここまでpc用header&nav */
+
+/* top-visual */
+.top-visual{
+width: 100%;
+height: 50vh;        
+margin-bottom: 100px;
+img{
+width: 100%;
+height: 100%;
+object-fit:cover;
+object-position: center bottom;
+}
+@include pc(){
+height: 64vh;
+margin-bottom: 84px;
+}
+}
+
+
+/* special-feature */
+.special-feature{
+h2{
+text-align: center;
+color: $color_letter;
+font-family: $font_jp;
+margin-bottom: 30px;
+letter-spacing: 1px;
+@include sp(){
+font-size: 28px;
+}
+@include tab(){
+font-size: 32px;    
+}
+@include wpc(){
+margin-bottom: 36px;    
+}
+}
+}
+
+
+/* main-visual bxslider*/
+.main-visual{
+max-width: 1280px;
+margin: 0 auto 180px;
+padding: 0 18px;
+@include sp(){
+padding: 0 22px;
+} 
+@include sp2(){
+padding: 0 25px;
+}
+@include tab(){
+padding: 0 32px;
+}
+@include pc(){
+padding: 0 50px;
+}
+.bxslider{ 
+@include pc(){
+margin-left: 50%; 
+} 
+img{
+width: 100%;
+object-fit: cover;
+} 
+}
+}
+
+
+/* 人気&おすすめ商品 */
+.popular-title{
+h2{
+color: $color_letter;
+font-family: $font_jp; 
+text-align: center;
+margin-bottom: 20px; 
+letter-spacing: 1px;
+@include sp(){
+font-size: 28px; 
+margin-bottom: 26px;   
+}
+@include sp2(){
+margin-bottom: 28px;
+}
+@include tab(){
+font-size: 32px;   
+margin-bottom: 30px;    
+}
+}
+}
+
+/* popular 段違い */
+.popular-wrapper{
+max-width: 1280px;
+padding: 0 18px;
+margin: 0 auto 100px;
+@include sp(){
+padding: 0 22px;    
+}
+@include sp2(){
+padding: 0 25px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+@include tab(){
+padding: 0 32px;
+}
+@include pc(){
+padding: 0 50px;
+}
+.p-content1,.p-content2,.p-content3,.p-content4,
+.p-content5,.p-content6{
+@include sp2(){ 
+width: 48%;
+}
+@include pc(){
+width: 31%;
+}   
+img{   
+margin-bottom: 20px; 
+aspect-ratio: 4 / 3 ;
+object-fit: cover;
+width: 100%; 
+@include sp(){
+margin-bottom: 26px;    
+}  
+}
+h3{
+color:$color_letter;
+font:22px $font_jp; 
+text-align: center; 
+margin-bottom: 12px;
+letter-spacing: 1px;
+@include sp(){
+font-size: 24px; 
+margin-bottom: 14px;   
+} 
+@include pc(){
+margin-bottom: 12px;    
+}
+} 
+p{
+color:$color_letter;
+font:17px $font_jp;
+text-indent: 1em; 
+letter-spacing: 1px; 
+margin-bottom: 26px; 
+@include sp(){
+font-size: 18px;
+margin-bottom: 32px;    
+}   
+@include sp2(){
+font-size: 17px;  
+}
+@include tab(){
+font-size: 18px;    
+}
+@include pc(){
+margin-bottom: 30px;    
+} 
+}  
+.p-btn{ /* 商品一覧を見る＆詳細はこちら */
+width: 130px;
+height: 30px;
+line-height: 30px;
+background-color: $color_buttton;
+margin: 0 auto 80px;
+@include pc(){
+margin-bottom: 0;    
+}
+a{
+color:#ffffff;
+display: block;
+text-align: center;
+font-family: $font_jp;
+&:hover{
+background-color: $color_button_hover;
+}
+}
+}
+}
+.p-content4{
+@include pc(){
+position: relative;  
+top: 0;
+left: 0;  
+}
+}
+.p-content5{
+@include pc(){
+position:relative;
+top:102px;
+left: 0;
+}
+}
+.p-content6{
+@include pc(){
+position: relative;
+top:204px;
+left: 0;
+}
+}
+}
+
+/* banner-wrapper */
+.banner-wrapper{
+padding: 0 18px; 
+max-width: 1280px;
+margin: 0 auto 100px;
+@include sp(){
+padding: 0 22px;
+margin-bottom: 150px;    
+} 
+@include sp2(){
+padding: 0 25px;    
+display: flex;
+}  
+@include tab(){
+padding: 0 32px;    
+}    
+@include pc(){
+padding: 0 50px;   
+margin-top: 350px; 
+}
+.banner1,.banner2{   
+margin-bottom: 24px;
+@include sp(){
+margin-bottom: 30px;    
+}
+@include sp2(){
+margin: 0 10px 0;
+}
+} 
+.banner1{
+@include pc(){
+margin-right: 30px;    
+}  
+@include wpc(){
+margin-right: 40px;    
+} 
+}
+}
+
+
+/* トピックス */
+.topics{
+h2{
+color: $color_letter;
+font-family: $font_jp;
+margin-bottom: 20px;
+text-align: center;
+letter-spacing: 1px;
+@include sp(){
+font-size: 28px;
+margin-bottom: 26px; 
+}
+@include sp2(){
+margin-bottom: 28px;    
+}
+@include tab(){
+font-size: 32px;    
+margin-bottom: 30px;
+}
+}
+}
+
+
+/* content-wrapper */
+.content-wrapper{
+max-width: 1280px;
+padding:0 18px;
+margin: 0 auto ;
+@include sp(){
+padding: 0 22px;
+}
+@include sp2(){
+padding: 0 25px;
+display: flex;
+flex-wrap: wrap;
+justify-content:space-between;
+}
+@include tab(){
+padding: 0 32px;
+}
+@include pc(){
+padding: 0 50px;
+}
+.content-box{ 
+@include sp2(){    
+width: 48%; 
+} 
+@include pc(){
+width: 31%;
+}
+img{
+width: 100%;
+aspect-ratio: 4 / 3;
+object-fit: cover;
+margin-bottom: 20px;
+@include sp(){
+margin-bottom: 26px;    
+}
+}
+h3{
+color: $color_letter;
+font:20px $font_jp;
+text-align: center;
+margin-bottom: 12px;
+letter-spacing: 1px; 
+@include sp(){
+font-size: 24px; 
+margin-bottom: 14px;   
+} 
+@include pc(){
+margin-bottom: 12px;    
+}
+}
+p{
+color: $color_letter;
+font:17px $font_jp;
+text-indent: 1em;
+margin-bottom: 26px;
+letter-spacing: 1px;
+@include sp(){
+font-size: 18px;
+margin-bottom: 32px;    
+}
+@include sp2(){
+font-size: 17px;    
+margin-bottom: 28px;    
+}
+@include tab(){
+font-size: 18px;    
+}
+@include pc(){
+margin-bottom: 30px;    
+}
+}
+.more-btn{ /* 詳細はこちら */
+width: 130px;
+height: 30px;
+line-height: 30px;
+background-color: $color_buttton;
+margin: 0 auto 80px; 
+a{
+color:#ffffff;
+display: block;
+text-align: center;
+font-family: $font_jp;
+&:hover{
+background-color: $color_button_hover;
+}
+}
+}    
+}    
+}
+
+
+/* guide-wrapper オンラインストアの送料 */
+.guide-wrapper{ 
+width: 100%;    
+background-color:$color_shipping_cost;
+margin-top: 220px;
+display: block;
+@include sp(){
+margin-top: 300px;    
+}    
+@include pc(){
+display: flex;
+justify-content: flex-end; 
+margin-top: 150px;
+padding-left: 50px;
+} 
+.sns-wrapper-pc{
+display: flex;
+justify-content: center;
+@include pc(){
+padding-right: 70px;     
+}
+img{
+width: 50px;
+height: 50px;
+padding: 0 2px;
+margin:0 10px 20px 0;
+@include pc(){
+margin-bottom: 0; 
+margin: 70px 8px 0;
+}
+}
+}
+.shipping-cost{
+text-align: center; 
+background-color:$color_shipping_cost;
+line-height: 1.6;
+padding: 0 10px;
+@include pc(){
+padding:0 120px 10px 0;
+}
+h4{
+color:$color_letter;
+font:18px $font_jp;
+margin-bottom: 8px;
+padding-top: 20px;
+} 
+p{
+color:$color_letter;
+font-family: $font_jp;
+padding-bottom: 10px;
+} 
+}
+}
+ 
+/* info-wrapper ショッピングガイド&その他*/
+.info-wrapper{
+line-height: 1.8;
+background-color: $color_main;
+@include sp2(){
+display: flex;
+justify-content: center;
+gap: 0 50px;   
+}
+@include pc(){
+gap: 0 150px;    
+}
+.shopping{
+margin: 0 0 20px 30px;   
+}
+.others{
+margin-left: 30px;
+padding-bottom: 60px;   
+}
+li{
+a{
+color:$color_letter; 
+font-family: $font_jp; 
+&:hover{
+color: $color_hover; 
+} 
+}      
+}
+h4{
+color: $color_letter; 
+font-family: $font_jp;
+padding-top: 20px;
+margin-bottom: 10px; 
+}  
+}
+
+    
+/* 共通 footer */
+footer{
+width: 100%;
+background-color:$color_letter; 
+@include pc(){
+display: flex;
+flex-direction: row-reverse;
+justify-content: center;
+gap:0 18px;
+}
+.f-nav{      
+Ul{
+display: flex;
+flex-wrap: wrap;
+margin-bottom: 20px;
+a{    
+display: block;    
+color: $color_main; 
+font-family: $font_jp;
+border-right:2px solid $color_main; 
+padding: 6px 12px;
+margin-top: 12px;
+&:hover{
+color: $color_buttton;
+}
+@include pc(){
+font-size: 13px;
+margin-right: 10px;
+}
+}
+}
+}
+p{
+color: $color_main;
+font-family: $font_jp;
+padding:12px 12px 20px; 
+@include pc(){
+font-size: 13px; 
+margin:6px 0 0 10px;   
+}
+}
+}
+
+
+/* 共通 to-top */
+.button{
+position: fixed;
+right: 10px;
+bottom: 70px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: $color_buttton;
+cursor: pointer;
+opacity: 0;
+visibility: hidden;
+transition: .3s;
+display: none;
+@include pc(){
+display: block;    
+}
+}
+.button:before{
+content: "";
+position: absolute;
+top: 4px;
+right: 0;
+bottom: 0;
+left: 0;
+width: 14px;
+height: 14px;
+margin: auto;
+border-top: 4px solid #ffffff;
+border-left: 4px solid #ffffff;
+transform: rotate(45deg);
+box-sizing: border-box;
+}
+.active{
+opacity: 1;
+visibility: visible;
+}
+
+
+/* teaページの設定*/
+/* teaのタイトル */
+.tea-title{
+max-width: 1280px;    
+color: $color_letter;
+font-family: $font_jp;
+text-align: center;
+margin: 0 auto;
+padding: 0 18px;
+@include sp(){
+padding: 0 22px;    
+}
+@include sp2(){
+padding: 0 25px;    
+}
+@include tab(){
+padding: 0 20px;    
+}
+@include pc(){
+padding: 0 50px;    
+}
+h2{
+font-size: 30px;
+letter-spacing: 6px;
+margin-bottom: 30px;
+@include sp(){
+font-size: 34px;    
+}
+@include sp2(){
+margin-bottom: 36px;    
+}
+@include tab(){
+font-size: 36px;    
+}
+@include pc(){
+margin-bottom: 50px;
+font-size: 38px;
+letter-spacing: 8px;
+}
+}
+p{
+font-size: 16px;
+text-indent: 1em;
+line-height: 1.8;
+margin-bottom: 60px;
+@include sp(){
+font-size: 18px;
+margin-bottom: 110px;    
+}
+}
+}
+
+.tea-sub-title{
+text-align: center;
+color: $color_letter;
+font:28px $font_en;
+margin-bottom: 20px;
+@include sp(){
+margin-bottom: 30px;    
+}
+@include sp2(){
+font-size: 30px;    
+}
+@include tab(){
+font-size: 34px; 
+margin-bottom: 34px;   
+}
+@include pc(){
+font-size: 36px;
+margin-bottom: 36px;    
+}
+@include wpc(){
+font-size: 38px;
+margin-bottom: 50px;    
+}
+}
+
+/* tea 商品画像 */
+.tea-body{
+background-color: #ffffff;    
+}
+
+.tea-wrapper{
+max-width: 960px; 
+padding:0 18px;
+display: flex;
+justify-content: space-evenly;
+margin: 0 auto;
+flex-wrap: wrap;
+@include sp(){
+padding: 0 22px;    
+}
+@include sp2(){
+padding: 0 25px;
+}    
+@include tab(){
+padding: 0 20px;    
+}
+@include pc(){
+padding: 0 50px;    
+}
+@include wpc(){
+max-width: 1280px;    
+}
+.tea-box{ 
+max-width: 130px; 
+margin: 0 10px; 
+@include sp(){
+max-width: 198px; 
+}
+@include sp2(){
+max-width: 250px; 
+margin: 0 20px;   
+}
+@include tab(){
+max-width: 200px;    
+}
+@include pc(){
+max-width: 180px;
+margin: 0 16px;  
+} 
+@include wpc(){
+max-width: 250px;    
+}   
+img{
+width: 100%;  
+object-fit: cover;
+margin-bottom: 26px; 
+}
+p{
+color: $color_letter;   
+font-family: $font_jp;
+margin:0 0 16px 8px;
+line-height: 2;
+@include sp(){
+font-size: 18px;    
+}
+@include sp(){
+margin-left: 26px;    
+}
+@include sp2(){
+margin-left: 32px;    
+}
+@include tab(){
+margin-left: 20px;    
+}
+@include pc(){
+margin-left: 28px;    
+}
+@include wpc(){
+margin-left: 34px;    
+}
+}
+.bag-button{ /* ＋バッグに追加 */
+text-align: right;
+margin-right: 10px;
+margin-bottom: 60px;
+@include sp(){
+margin-bottom: 70px;    
+}
+@include sp2(){
+margin-bottom: 80px;    
+}
+@include tab(){
+margin-bottom: 86px;    
+}
+@include pc(){
+margin-bottom: 100px;    
+}    
+a{
+color: $color_banner2; 
+font:14px $font_jp;
+&:hover{
+color: $color_button_hover;   
+}
+@include sp(){
+font-size: 16px;    
+}
+@include sp2(){
+font-size: 17px;    
+}
+} 
+}
+}
+}
+
+/* tea 個別商品 */
+.item-body{
+background-color: #ffffff;    
+}
+
+.item-name{
+text-align: center;  
+font:34px $font_en;
+color: $color_letter;
+margin: 0; 
+@include sp(){
+font-size: 37px;    
+}
+@include sp2(){
+margin-bottom: 30px; 
+font-size: 38px;   
+}
+}
+
+.item-box{
+max-width:960px;
+padding:0 18px; 
+margin: 0 auto;   
+@include sp(){
+padding: 0 22px;
+}    
+@include sp2(){
+padding: 0 25px; 
+display: flex;
+justify-content: space-evenly;
+gap: 0 20px;
+}
+@include tab(){
+padding: 0 32px;
+gap: 0 22px;
+}
+@include pc(){
+padding: 0 50px;  
+gap: 0 30px; 
+}
+.item-visual{  
+@include sp2(){
+width: 50%;    
+} 
+img{
+padding: 30px;  
+@include sp(){
+padding: 70px;    
+} 
+@include sp2(){
+padding: 20px;   
+}
+}    
+}
+.item-txt{
+@include sp2(){
+width: 50%;    
+}
+h3{
+text-align: left;
+font:20px $font_jp;
+color: $color_letter;
+margin-bottom: 6px;
+@include sp(){
+font-size: 23px;    
+} 
+@include sp2(){
+margin-top: 50px;    
+} 
+@include tab(){
+margin-top: 60px; 
+font-size: 26px;   
+}  
+@include pc(){
+margin-top: 80px;    
+font-size: 28px;    
+}
+}
+.price{
+text-align: left;
+font:18px $font_jp;
+color: $color_letter; 
+margin-bottom: 28px; 
+@include sp(){
+font-size: 21px;
+margin-bottom: 20px;    
+} 
+@include tab(){
+margin-bottom: 40px;    
+}    
+@include pc(){
+font-size: 22px;  
+margin-bottom: 100px;  
+} 
+} 
+.item-cart{
+@include sp(){
+display: flex;    
+}
+@include sp2(){
+display: block;    
+}
+@include pc(){
+display: flex;    
+}
+dt{  
+@include sp(){
+width: 20%;   
+}
+@include pc(){
+margin-bottom: 70px;    
+}
+[type="number"]{
+border-radius: 6px; 
+height: 38px;
+border: 1px solid $color_button_hover; 
+color: $color_letter;
+padding: 3px 4px;
+outline: none; 
+margin:1px 0 28px; 
+@include tab(){
+margin-bottom: 20px;    
+}
+} 
+}
+dd{
+@include sp(){
+width: 80%;    
+}
+@include pc(){
+margin-left: 26px; 
+margin-bottom: 70px;   
+}
+.item-btn{/* ショッピングバッグに追加 */
+width: 100%;       
+height: 40px;
+line-height: 40px;
+background-color: $color_bag;
+margin-bottom: 80px;
+@include sp(){
+margin-bottom: 100px;    
+}
+@include sp2(){
+margin-bottom: 80px;    
+}
+@include tab(){
+margin-bottom: 100px;    
+}
+a{ 
+color: #ffffff;
+text-align: center;
+display: block;
+font:18px $font_jp;  
+&:hover{
+background-color: $color_button_hover;
+}
+}
+}
+}
+}
+.item-content{ 
+font-family: $font_jp;
+color: $color_letter; 
+@include sp(){
+display: flex;
+flex-wrap: wrap;
+margin-bottom: 80px;
+}
+@include sp2(){
+display: block;  
+flex-wrap: nowrap;  
+}
+@include tab(){
+display: flex;
+flex-wrap: wrap;    
+}
+dt{
+@include sp(){
+width: 45%;  
+margin-bottom: 18px;  
+font-size: 17px;
+}  
+@include sp2(){
+margin-bottom: 2px;  
+width: 100%;
+} 
+@include tab(){
+width: 28%;
+}
+@include pc(){
+font-size: 18px; 
+width: 40%; 
+}
+}
+dd{     
+margin-bottom: 18px;  
+@include sp(){
+width: 55%;  
+font-size: 17px;  
+}  
+@include sp2(){
+margin-bottom: 12px;
+width: 100%;
+}
+@include tab(){
+margin-bottom: 14px;
+padding-left: 16px;
+width: 72%;   
+}
+@include pc(){
+font-size: 18px;
+padding-left: 0;
+width: 60%;
+}
+}
+}
+h4{/* PRODUCT DESCRIPTION */
+color: $color_letter;
+font:22px $font_en;  
+text-align: center;
+margin-bottom: 20px;
+letter-spacing: .5px;
+@include sp(){
+font-size: 28px;
+margin-bottom: 28px;    
+}
+@include sp2(){
+display: none;    
+} 
+}
+.p-txt{
+color: $color_letter;
+font-family: $font_jp;
+letter-spacing: 2px;
+text-indent: 1em;
+margin-bottom: 50px;
+@include sp(){
+line-height: 1.6;    
+font-size: 18px;
+}
+@include tab(){
+margin-bottom: 70px; 
+}
+@include pc(){
+font-size: 19px;  
+}
+}
+}
+}
+
+.tea-btn{ /* 商品一覧へ戻る */
+width: 130px;
+height: 30px;
+line-height: 30px;
+background-color: $color_buttton;
+margin: 50px auto; 
+a{
+color:#ffffff;
+display: block;
+text-align: center;
+font-family: $font_jp;
+&:hover{
+background-color: $color_button_hover;
+}
+}
+}    
+
+
+/* historyページの設定 */
+/* historyのタイトル */
+.history-title{
+max-width: 1280px;
+padding: 0 18px;
+text-align: center;
+color: $color_letter;
+font-family: $font_jp;
+letter-spacing: 1px;
+margin: 0 auto;
+@include sp(){
+padding: 0 22px;
+}
+@include sp2(){
+padding: 0 25px;    
+}
+@include tab(){
+padding: 0 32px;    
+}
+@include pc(){
+padding: 0 50px;    
+}
+h2{    
+font-size: 22px;
+letter-spacing: 1px;
+margin-bottom: 38px;
+@include sp(){
+font-size: 24px;    
+}
+@include sp2(){
+font-size: 28px;    
+}
+@include tab(){
+font-size: 30px; 
+margin-bottom: 48px;  
+}
+@include wpc(){
+font-size: 32px;    
+}
+}
+p{
+line-height: 1.8;
+text-indent: 1em;
+font-size: 16px;
+letter-spacing: 1px;
+margin-bottom: 180px;
+@include sp(){
+margin-bottom: 200px;    
+}
+@include sp2(){
+font-size: 18px;
+margin-bottom: 250px; 
+}
+@include tab(){
+line-height: 2; 
+margin-bottom: 280px;   
+}
+}
+}
+
+/* 画像3枚 */
+.history-wrapper{
+max-width: 1280px;
+padding: 0 18px;
+margin: 0 auto;
+@include sp(){
+padding: 0 22px;
+}
+@include sp2(){
+padding: 0 25px;    
+}
+@include tab(){
+padding: 0 32px;
+}
+@include pc(){    
+display: flex;    
+padding: 0 50px;
+margin-bottom: 220px;
+gap: 0 50px;
+&:nth-of-type(5){
+flex-direction: row-reverse;    
+}
+}
+.history-photo{
+@include pc(){
+width: 50%; 
+}    
+img{
+margin-bottom: 10px;
+@include sp(){
+margin-bottom: 20px;    
+} 
+}
+p{/*写真の説明 */
+color: $color_letter;
+font-family: $font_jp;
+margin:0 0 40px 4px;
+@include sp(){
+font-size: 18px; 
+margin-bottom: 60px;   
+} 
+@include sp2(){
+margin-bottom: 100px;    
+} 
+@include tab(){
+padding:0 8px;
+line-height: 1.6; 
+margin-bottom: 120px;
+}
+@include pc(){
+font-size: 20px; 
+line-height: 1.8;
+}
+}
+}
+.history-txt{
+color: $color_letter;
+font-family: $font_jp;
+@include pc(){
+width: 50%;
+}
+h3{
+text-align: center;
+letter-spacing: 2px;
+margin-bottom: 20px;
+font-size: 20px;
+@include sp(){
+font-size: 22px;    
+}
+@include sp2(){
+font-size: 25px;  
+margin-bottom: 30px;  
+}
+@include tab(){
+font-size: 26px;
+margin-bottom: 38px;
+}
+@include pc(){
+font-size: 22px; 
+margin:8px 0 20px; 
+}
+@include wpc(){
+font-size: 23px; 
+margin:46px 0 30px;   
+}
+}
+p{
+line-height: 1.8;
+text-indent: 1em;
+letter-spacing: 2px;
+margin-bottom: 120px;
+@include sp(){
+margin-bottom: 180px; 
+}
+@include sp2(){
+font-size: 18px;  
+margin-bottom: 240px;  
+}
+@include tab(){ 
+font-size: 18px;
+} 
+@include pc(){
+font-size: 18px;
+margin-bottom: 0;
+}
+}
+}
+}
+
+/* 沿革 */
+.history-subject{
+margin: 0 auto;
+font:22px $font_jp;
+color: $color_letter;
+text-align: center;
+letter-spacing: 2px;
+margin-bottom: 20px;
+@include sp(){
+font-size: 24px;    
+}
+@include sp2(){
+font-size: 28px;    
+}
+@include tab(){
+font-size: 30px; 
+} 
+@include pc(){
+font-size: 32px;
+} 
+}
+
+/* タイムライン */
+.history-timeline{
+max-width: 1280px; 
+padding: 0 18px;    
+margin: 0 auto 200px;
+@include sp(){
+padding: 0 22px;    
+}
+@include sp2(){
+padding: 0 25px;    
+}
+@include tab(){
+padding: 0 32px;    
+}
+@include pc(){
+padding: 0 50px;    
+}  
+dt,dd{
+color: $color_letter;
+font:16px $font_jp; 
+line-height: 1.8;
+letter-spacing: 2px;
+@include pc(){
+font-size: 18px;    
+}
+}
+dt{
+margin-bottom: 10px; 
+@include tab(){
+margin-bottom: 20px;    
+}   
+}
+dd{
+width: 100%;    
+margin-bottom: 50px; 
+}
+.history-box{/* 沿革内の写真 */
+@include tab(){
+width: 100%;
+display: flex; 
+&:nth-of-type(2){
+flex-direction: row-reverse;    
+}   
+} 
+dd{
+width: 100%; 
+margin-bottom: 50px; 
+@include pc(){
+font-size: 18px;    
+}     
+}
+img{
+width: 100%;
+@include sp(){
+margin-bottom: 60px;
+}    
+@include tab(){
+padding:0 50px 50px 20px;    
+}
+@include pc(){
+margin-left: 10px;
+}
+}   
+}
+}
+
+/* storeページの設定 */
+.store-title{
+h2{
+color: $color_letter;
+font:28px $font_jp;
+text-align: center;
+margin-bottom: 20px;
+letter-spacing: 3px;
+@include sp(){
+font-size: 32px; 
+margin-bottom: 40px;   
+}
+@include sp2(){
+margin-bottom: 60px;    
+}
+@include tab(){
+margin-bottom: 80px;    
+}
+@include pc(){
+font-size: 34px;    
+margin-bottom: 120px;    
+}
+}
+}
+
+/* 店舗のレイアウト */
+.store-info-wrapper{  
+max-width: 1280px;
+margin: 0 auto;     
+padding:0 18px;
+@include sp(){
+padding: 0 22px;     
+}
+@include sp2(){
+padding: 0 25px;    
+}
+@include tab(){ 
+padding:0 32px;       
+margin-bottom: 130px;
+}
+@include pc(){
+padding: 0 50px;
+margin-bottom: 100px;
+justify-content: center;
+display: flex;
+}
+.info-box{
+@include sp2(){
+display: flex; 
+}
+.store-photo{   
+@include pc(){
+width: 296px;
+}   
+@include wpc(){
+width: 336px;    
+}
+img{
+width: 100%;
+object-fit: cover;   
+margin-bottom: 12px;
+aspect-ratio: 4 / 3 ;
+@include sp(){
+margin-bottom: 20px;        
+}
+@include pc(){
+margin-bottom: 0;    
+}
+}
+}
+.store-address{
+color: $color_letter;
+font-family: $font_jp;
+@include pc(){
+width: 350px;    
+}
+@include wpc(){
+width: 590px;    
+}
+h3{
+letter-spacing: 3px;
+margin:0 0 10px 10px;
+font-size: 20px;
+@include sp(){    
+font-size: 28px;
+}
+@include sp2(){
+font-size: 24px;
+margin:0 0 10px 30px;    
+}
+@include tab(){
+font-size: 26px;
+margin:10px 0 10px 70px;
+}
+@include pc(){   
+margin:10px 0 10px 40px; 
+}
+@include wpc(){
+font-size: 30px; 
+margin: 20px 0 20px 70px;  
+}
+} 
+p{
+letter-spacing: 2px;
+margin:0 0 14px 10px;
+@include sp(){
+font-size: 22px;  
+margin-bottom: 16px;  
+}
+@include sp2(){
+font-size: 20px;
+margin:0 0 8px 30px;    
+}
+@include tab(){ 
+font-size: 21px;
+margin:0 0 4px 70px;
+}
+@include pc(){
+font-size: 19px;
+margin:0 40px 12px 40px; 
+}
+@include wpc(){
+font-size: 23px;
+margin: 0 0 12px 70px;    
+}
+a{
+color: $color_letter;
+pointer-events: auto;
+@include sp2(){
+pointer-events: none; 
+}  
+}   
+} 
+}
+}
+.gmap-btn{ /* map */
+width: 100%;
+height: 40px;
+line-height: 40px;
+background-color: $color_buttton;
+margin: 30px auto 120px;
+@include sp(){
+height: 50px;
+line-height: 50px;    
+}
+@include sp2(){
+margin: 30px 0 150px;    
+}
+@include pc(){
+display: inline;
+width: 222px;
+line-height: 222px;
+height: 222px;  
+margin-top: 0;
+}
+@include wpc(){
+width: 252px;    
+line-height: 252px;
+height: 252px;
+}
+a{
+color:#ffffff;
+display: inline-block;
+text-align: center;
+font:20px $font_en;
+width: 100%;
+height: 100%;
+@include sp(){
+font-size: 30px;    
+} 
+@include wpc(){
+font-size: 32px;    
+}
+}
+&:hover{
+background-color: $color_button_hover;
+}
+}
+} 
+
+/* twitter&神戸旧居留地店 */
+.sns-title{
+letter-spacing: 3px;     
+h2{  /* インフォメーション */
+color: $color_letter;
+font:28px $font_jp; 
+text-align: center; 
+letter-spacing: 3px;
+margin-bottom: 20px; 
+@include sp(){
+font-size: 30px; 
+margin:260px 0 40px;   
+}
+@include tab(){
+margin: 200px 0 40px;
+}
+@include pc(){
+margin:140px 0 80px;
+} 
+@include wpc(){
+margin: 160px 0 90px;    
+}
+}
+}
+
+/* ツィッター＆神戸 */
+.new-store-wrapper{ 
+max-width: 1280px;  
+margin: 0 auto;         
+@include tab(){     
+display: flex;
+justify-content: center; 
+} 
+.tw-box{
+padding: 0 18px;    
+margin-bottom: 100px; 
+@include sp(){
+padding: 0 22px;    
+}
+@include sp2(){
+padding: 0 25px;   
+}
+@include tab(){
+padding: 0 20px;
+width: 50%;   
+}
+@include pc(){
+padding: 0 50px; 
+margin-right: 20px;   
+}
+h3{/* twitter */    
+color: $color_banner2;
+font-family: $font_en;
+text-align: center;
+font-size: 30px;
+margin-bottom: 10px;
+@include sp(){
+margin-bottom: 18px;    
+}
+@include tab(){
+margin-bottom: 22px;
+font-size: 32px;
+text-align: center;
+}
+}    
+}
+.new-store-box{
+@include tab(){
+width: 50%;    
+} 
+@include pc(){
+padding: 0 50px;    
+}   
+h3{/* 11/16open予定 */
+color: $color_letter;
+font:24px $font_jp;
+text-align: center;
+margin-bottom: 12px;
+@include sp(){
+margin-bottom: 30px; 
+font-size: 28px;    
+}
+@include tab(){
+margin-bottom: 34px; 
+font-size: 26px;
+text-align: center;    
+}
+} 
+.new-store-info{ 
+padding: 0 18px;
+@include sp(){
+padding: 0 22px;    
+}
+@include sp2(){
+padding: 0 25px;    
+display: flex;    
+}   
+@include tab(){
+padding: 0 20px;
+display: block;    
+} 
+@include pc(){
+padding: 0;    
+}
+.new-store-photo{
+img{
+margin-bottom: 12px;
+aspect-ratio: 4 / 3; 
+@include sp(){
+margin-bottom: 20px;        
+}
+@include sp2(){
+width: 250px;   
+}
+@include tab(){
+width: 100%;  
+}
+@include pc(){
+margin-bottom: 10px;    
+}
+}           
+}  
+.new-store-address{
+@include wpc(){
+position: relative;
+top: 0;
+left: 0;
+}
+h4{/* 神戸旧居留地店 */
+color: $color_letter;
+font-family: $font_jp;
+letter-spacing: 3px;
+font-size: 20px;
+margin: 0 0 10px 10px;
+text-align:left;
+@include sp(){    
+font-size: 28px;
+margin-bottom: 10px; 
+}
+@include sp2(){
+font-size: 24px;
+margin:0 0 6px 58px;    
+}
+@include tab(){
+margin: 0 0 4px 26px;
+}
+}  
+p{
+color: $color_letter;
+font-family: $font_jp;
+letter-spacing: 2px;
+margin:0 0 14px 10px;
+@include sp(){
+font-size: 22px;  
+margin-bottom: 16px;  
+} 
+@include sp2(){
+font-size: 20px;
+margin:0 0 10px 58px;    
+} 
+@include tab(){
+margin:0 0 12px 26px;  
+}
+@include pc(){
+margin-bottom: 2px; 
+font-size: 19px;   
+}
+} 
+.more-btn{ /* 詳細はこちら */
+width: 130px;
+height: 30px;
+line-height: 30px;
+background-color: $color_buttton;
+margin: 30px auto;
+@include sp2(){
+margin: 20px 0 0 108px;   
+}
+@include tab(){
+margin-top: 22px;    
+}
+@include pc(){
+margin: 18px 0 200px 100px;
+}  
+@include wpc(){
+position: absolute;
+top: 68px;
+left: 240px;
+}
+a{  
+color:#ffffff;
+display: block;
+text-align: center;
+font-family: $font_jp;
+&:hover{ 
+background-color: $color_button_hover;
+}
+}
+}
+}
+}      
+}
+}
+
+/*お問い合せフォーム */
+h2{/* タイトル */
+color: $color_letter;
+font-family: $font_jp;    
+text-align: center; 
+margin:60px 0 20px;  
+letter-spacing: 1px;
+@include sp(){
+font-size: 28px;    
+}
+@include pc(){
+font-size: 32px;
+margin-bottom: 30px;
+}
+}
+
+#g-form{
+max-width: 960px;   
+padding: 0 18px; 
+margin: 0 auto;
+@include sp(){
+padding: 0 22px;    
+}
+@include sp2(){
+padding: 0 25px;
+}
+@include tab(){
+padding: 0 32px;
+}
+@include pc(){
+padding: 0 50px;
+}
+.txt{
+color: $color_letter;
+font:16px $font_jp; 
+letter-spacing: 1px;
+margin-bottom: 20px;
+@include sp(){
+margin-bottom: 25px;   
+}
+@include pc(){
+font-size: 18px;
+margin-bottom: 30px;
+}
+}
+dl{  
+border: 1px solid $color_button_hover;
+@include tab(){
+display: flex;
+flex-wrap: wrap;
+}
+dt{
+text-align: center;
+margin: 30px 0 16px;
+color: $color_letter;
+font:18px $font_jp;
+@include sp(){
+font-size: 20px;   
+}
+@include tab(){
+width: 30%;
+margin: 0;
+padding: 10px 0 5px 0;
+font-size: 18px;
+&:nth-of-type(n+1){
+border-right: 1px solid $color_button_hover;
+}
+}
+@include pc(){
+font-size: 20px;
+}
+}
+.red{
+color: red;    
+}
+@include tab(){
+dt:nth-of-type(n+2),dd:nth-of-type(n+2){
+border-top: 1px solid $color_button_hover;
+}
+}
+dd{ 
+text-align: center;
+@include tab(){
+width: 70%;
+padding: 10px 0 10px 0;
+}
+.example{   
+margin: 6px 0 10px; 
+color: $color_letter;
+font-family: $font_jp; 
+a{
+pointer-events: none;
+color: $color_letter;
+font-family: $font_jp; 
+}
+@include tab(){
+margin-bottom: 0;
+}
+}
+.address{
+font:16px $font_jp;
+color: $color_letter;   ;
+margin-bottom: 8px;
+@include sp(){
+font-size: 18px;    
+} 
+}
+[type="text"],[type="email"]{
+border-radius: 6px; 
+border: 1px solid $color_button_hover; 
+background-color:#ffffff;
+width: 280px;
+height: 32px; 
+padding-left: 6px;
+outline: none;
+@include sp(){
+width: 320px; 
+height: 40px;   
+} 
+@include sp2(){
+width: 400px;
+}
+}
+.p-postal-code{
+width: 180px; 
+@include sp2(){
+width: 200px;
+} 
+}
+[type="tel"]{
+border-radius: 6px; 
+border: 1px solid $color_button_hover; 
+background-color:#ffffff;  
+height: 32px;
+padding-left: 6px; 
+outline: none;
+@include sp2(){
+width: 300px;
+height: 40px;
+}
+}
+textarea{
+border-radius: 6px; 
+border: 1px solid $color_button_hover; 
+background-color:#ffffff;
+width: 280px;
+height: 350px;
+margin-bottom: 20px;
+padding:8px 6px 0;
+letter-spacing: 2px;
+outline: none;
+@include sp(){
+width: 320px;    
+}
+@include sp2(){
+width: 400px;
+}
+@include pc(){
+width: 570px;
+}
+}
+.confirm{
+color: red; 
+font:14px $font_jp;
+letter-spacing: 1px;
+margin:0 20px 30px 20px;
+}
+}
+}
+}
+
+/* プライバシーポリシー */
+.policy-wrapper{
+h3{
+color:$color_letter;    
+font-family: $font_jp;
+text-align: center;
+margin: 80px 0 20px;
+letter-spacing: 1px;
+@include sp(){
+font-size: 20px;    
+}
+@include sp2(){
+font-size: 24px;
+}
+}     
+.policy-inner{
+border: 1px solid $color_button_hover;
+margin-bottom: 30px;
+p{
+height: 280px;    
+color: $color_letter;
+font-family: $font_jp;
+line-height: 2;
+text-indent: 1em;
+overflow-y: scroll;
+padding: 0 10px;
+@include sp2(){
+margin-bottom: 20px;
+}
+}
+}
+p{   
+label{
+color: $color_letter;
+font-family: $font_jp;
+display: block; 
+[type="checkbox"]{
+transform: scale(1.6);
+margin:0 10px 10px;
+outline-color: $color_button_hover;
+accent-color: $color_letter;
+} 
+@include pc(){
+margin-bottom: 50px;
+}   
+}   
+} 
+}
+
+.form-btn{/* 送信とリセットボタン */
+display: flex; 
+margin-top: 40px;
+justify-content: center;
+font:18px $font_jp;
+[type="submit"]{
+width: 160px;
+height: 50px; 
+color: #ffffff;   
+background-color:$color_banner2;
+margin-right: 26px;
+&:hover{
+background-color: #8bdfd1;
+}
+@include sp(){
+margin-right: 40px;
+}
+@include sp2(){
+margin-right: 50px;
+}
+@include pc(){
+margin-right: 80px;
+}
+}
+[type="reset"]{
+width: 160px;
+height: 50px; 
+color: #ffffff;  
+background-color:$color_letter; 
+&:hover{
+background-color:$color_button_hover;
+}
+}
+}
+    
+/* お問い合せ confirm*/
+[type="button"]{
+width: 160px;
+height: 50px; 
+color: #ffffff;  
+background-color:$color_letter;
+&:hover{
+background-color:$color_button_hover;
+} 
+}
+
+/* お問い合わせ thanks */
+.thanks-title{
+padding: 0 18px;
+max-width: 960px;
+margin: 0 auto;
+@include sp(){
+padding: 0 22px;    
+} 
+@include sp2(){
+padding: 0 25px;    
+}
+@include tab(){
+padding: 0 32px;    
+}
+@include pc(){
+padding: 0 50px;
+}
+h2{
+color: $color_letter;
+font-family: $font_jp;
+text-align: center;
+margin: 40px 0  80px; 
+letter-spacing: 1px; 
+@include sp(){
+font-size: 28px; 
+margin-top: 80px;   
+} 
+@include sp2(){
+font-size: 30px;     
+}
+@include tab(){
+font-size: 32px;    
+}
+}
+h3{
+color: $color_letter;
+font-family: $font_jp;
+text-align: center; 
+margin-bottom: 10px;
+letter-spacing: 1px;
+@include sp(){
+font-size: 24px;
+margin-bottom: 18px;    
+}
+@include tab(){
+font-size: 26px; 
+margin-bottom: 20px;   
+}
+}   
+p{
+color: $color_letter;
+font-family: $font_jp; 
+text-indent: 1em;
+line-height: 1.8;
+@include sp(){
+line-height: 2; 
+font-size: 18px;   
+} 
+@include tab(){
+line-height: 2.2;    
+}
+}
+.t-btn{ /* トップへ戻る */
+width: 130px;
+height: 30px;
+line-height: 30px;
+background-color: $color_buttton;
+margin: 36px auto 50px;
+@include sp(){
+margin-top: 60px;    
+}
+@include tab(){
+width: 160px;
+height: 40px; 
+line-height: 40px;   
+}
+a{
+color:#ffffff;
+display: block;
+text-align: center;
+padding-top: 1px;
+font-family: $font_jp;
+@include tab(){
+font-size: 20px; 
+padding-top: 2px;   
+}
+&:hover{
+background-color: $color_button_hover;
+}
+}      
+}
+}

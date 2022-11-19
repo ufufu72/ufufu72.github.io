@@ -1,6 +1,0 @@
-font 英語:Times New Roman  Bold Italic
-日本語:UD デジタル 教科書NP-B
-
-color:#e84b9d
-#88773f
-#c9caca
