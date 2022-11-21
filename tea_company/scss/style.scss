@@ -1706,10 +1706,10 @@ margin-left: 10px;
 
 /* storeページの設定 */
 .store-title{
-h2{
 color: $color_letter;
-font-size: 28px;
 font-family: $font_jp;
+h2{
+font-size: 28px;
 text-align: center;
 margin-bottom: 20px;
 letter-spacing: 3px;
@@ -1888,11 +1888,11 @@ background-color: $color_button_hover;
 
 /* twitter&神戸旧居留地店 */
 .sns-title{
-letter-spacing: 3px;     
+letter-spacing: 3px;  
+color: $color_letter; 
+font-family: $font_jp;  
 h2{  /* インフォメーション */
-color: $color_letter;
 font-size: 28px;
-font-family: $font_jp;
 text-align: center; 
 letter-spacing: 3px;
 margin-bottom: 20px; 
