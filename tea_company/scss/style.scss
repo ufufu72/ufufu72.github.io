@@ -78,8 +78,10 @@ display: flex;
 justify-content:space-between;
 .sp-company-name{
 width: 100%;    
-h1{        
-font:bold 19px $font_en;
+h1{     
+font-weight: bold;  
+font-size: 19px;
+font-family: $font_en; 
 color: #ffffff;
 z-index: 1;
 text-align: center;
@@ -161,7 +163,7 @@ display: none;
 
 
 
-/*共通 #g-nav-sp アコーディオン */
+/*共通 #g-nav-sp スライド */
 #g-nav-sp{
 width: 325px;  
 height: 100vh;
@@ -188,13 +190,16 @@ margin-bottom: 30px;
 } 
 h2{
 color: $color_letter;
-font:bold 24px $font_en;
+font-weight: bold;
+font-size: 24px;
+font-family:$font_en;
 margin: 30px 0;
 }
 li{
 margin-bottom: 30px;
 a{
-font: 20px $font_jp; 
+font-size: 20px;
+font-family:$font_jp;
 color: $color_letter;  
 }
 &:nth-of-type(n+2){
@@ -262,7 +267,8 @@ margin-bottom: 10px;
 }
 p{
 color: $color_letter; 
-font: 10px $font_en;  
+font-size: 10px;
+font-family: $font_en;
 }
 @include pc(){ 
 display: none;
@@ -296,7 +302,8 @@ margin: 0 0 10px 16px;
 } 
 p{
 color: $color_letter;
-font:10px $font_en;
+font-size: 10px;
+font-family: $font_en;
 text-indent: 2em; 
 }
 } 
@@ -304,7 +311,9 @@ text-indent: 2em;
 margin:40px 0 0 120px;      
 h1{
 color: $color_letter; 
-font:bold 38px $font_en;
+font-weight: bold;
+font-size: 38px;
+font-family:$font_en;
 } 
 p{
 color: $color_letter; 
@@ -398,7 +407,8 @@ align-items: center;
 a{
 display: block;
 color: $color_letter;
-font:22px $font_jp;
+font-size: 22px;
+font-family:$font_jp;
 padding: 0 40px;
 height: 50px;
 line-height: 50px; 
@@ -566,7 +576,8 @@ margin-bottom: 26px;
 }
 h3{
 color:$color_letter;
-font:22px $font_jp; 
+font-size: 22px;
+font-family:$font_jp;
 text-align: center; 
 margin-bottom: 12px;
 letter-spacing: 1px;
@@ -580,7 +591,8 @@ margin-bottom: 12px;
 } 
 p{
 color:$color_letter;
-font:17px $font_jp;
+font-size: 17px;
+font-family:$font_jp;
 text-indent: 1em; 
 letter-spacing: 1px; 
 margin-bottom: 26px; 
@@ -742,7 +754,8 @@ margin-bottom: 26px;
 }
 h3{
 color: $color_letter;
-font:20px $font_jp;
+font-size: 20px;
+font-family: $font_jp;
 text-align: center;
 margin-bottom: 12px;
 letter-spacing: 1px; 
@@ -756,7 +769,8 @@ margin-bottom: 12px;
 }
 p{
 color: $color_letter;
-font:17px $font_jp;
+font-size: 17px;
+font-family:$font_jp ;
 text-indent: 1em;
 margin-bottom: 26px;
 letter-spacing: 1px;
@@ -837,7 +851,8 @@ padding:0 120px 10px 0;
 }
 h4{
 color:$color_letter;
-font:18px $font_jp;
+font-size: 18px;
+font-family:$font_jp ;
 margin-bottom: 8px;
 padding-top: 20px;
 } 
@@ -1024,7 +1039,8 @@ margin-bottom: 110px;
 .tea-sub-title{
 text-align: center;
 color: $color_letter;
-font:28px $font_en;
+font-size: 28px;
+font-family: $font_en;
 margin-bottom: 20px;
 @include sp(){
 margin-bottom: 30px;    
@@ -1140,7 +1156,8 @@ margin-bottom: 100px;
 }    
 a{
 color: $color_banner2; 
-font:14px $font_jp;
+font-size: 14px;
+font-family:$font_jp;
 &:hover{
 color: $color_button_hover;   
 }
@@ -1161,8 +1178,9 @@ background-color: #ffffff;
 }
 
 .item-name{
-text-align: center;  
-font:34px $font_en;
+text-align: center; 
+font-size: 34px;
+font-family:$font_en ; 
 color: $color_letter;
 margin: 0; 
 @include sp(){
@@ -1215,7 +1233,8 @@ width: 50%;
 }
 h3{
 text-align: left;
-font:20px $font_jp;
+font-size: 20px;
+font-family:$font_jp;
 color: $color_letter;
 margin-bottom: 6px;
 @include sp(){
@@ -1235,7 +1254,8 @@ font-size: 28px;
 }
 .price{
 text-align: left;
-font:18px $font_jp;
+font-size: 18px;
+font-family:$font_jp;
 color: $color_letter; 
 margin-bottom: 28px; 
 @include sp(){
@@ -1307,7 +1327,8 @@ a{
 color: #ffffff;
 text-align: center;
 display: block;
-font:18px $font_jp;  
+font-size: 18px;
+font-family: $font_jp;  
 &:hover{
 background-color: $color_button_hover;
 }
@@ -1373,7 +1394,8 @@ width: 60%;
 }
 h4{/* PRODUCT DESCRIPTION */
 color: $color_letter;
-font:22px $font_en;  
+font-size: 22px;
+font-family:$font_en;  
 text-align: center;
 margin-bottom: 20px;
 letter-spacing: .5px;
@@ -1595,7 +1617,8 @@ margin-bottom: 0;
 /* 沿革 */
 .history-subject{
 margin: 0 auto;
-font:22px $font_jp;
+font-size: 22px;
+font-family:$font_jp;
 color: $color_letter;
 text-align: center;
 letter-spacing: 2px;
@@ -1633,7 +1656,8 @@ padding: 0 50px;
 }  
 dt,dd{
 color: $color_letter;
-font:16px $font_jp; 
+font-size: 16px;
+font-family: $font_jp; 
 line-height: 1.8;
 letter-spacing: 2px;
 @include pc(){
@@ -1684,7 +1708,8 @@ margin-left: 10px;
 .store-title{
 h2{
 color: $color_letter;
-font:28px $font_jp;
+font-size: 28px;
+font-family: $font_jp;
 text-align: center;
 margin-bottom: 20px;
 letter-spacing: 3px;
@@ -1844,7 +1869,8 @@ a{
 color:#ffffff;
 display: inline-block;
 text-align: center;
-font:20px $font_en;
+font-size: 20px;
+font-family: $font_en;
 width: 100%;
 height: 100%;
 @include sp(){
@@ -1865,7 +1891,8 @@ background-color: $color_button_hover;
 letter-spacing: 3px;     
 h2{  /* インフォメーション */
 color: $color_letter;
-font:28px $font_jp; 
+font-size: 28px;
+font-family: $font_jp;
 text-align: center; 
 letter-spacing: 3px;
 margin-bottom: 20px; 
@@ -1935,7 +1962,8 @@ padding: 0 50px;
 }   
 h3{/* 11/16open予定 */
 color: $color_letter;
-font:24px $font_jp;
+font-size: 24px;
+font-family: $font_jp;
 text-align: center;
 margin-bottom: 12px;
 @include sp(){
@@ -2097,7 +2125,8 @@ padding: 0 50px;
 }
 .txt{
 color: $color_letter;
-font:16px $font_jp; 
+font-size: 16px;
+font-family:$font_jp;
 letter-spacing: 1px;
 margin-bottom: 20px;
 @include sp(){
@@ -2118,7 +2147,8 @@ dt{
 text-align: center;
 margin: 30px 0 16px;
 color: $color_letter;
-font:18px $font_jp;
+font-size: 18px;
+font-family: $font_jp;
 @include sp(){
 font-size: 20px;   
 }
@@ -2163,7 +2193,8 @@ margin-bottom: 0;
 }
 }
 .address{
-font:16px $font_jp;
+font-size: 16px;
+font-family: $font_jp;
 color: $color_letter;   ;
 margin-bottom: 8px;
 @include sp(){
@@ -2226,7 +2257,8 @@ width: 570px;
 }
 .confirm{
 color: red; 
-font:14px $font_jp;
+font-size: 14px;
+font-family:$font_jp;
 letter-spacing: 1px;
 margin:0 20px 30px 20px;
 }
@@ -2287,7 +2319,8 @@ margin-bottom: 50px;
 display: flex; 
 margin-top: 40px;
 justify-content: center;
-font:18px $font_jp;
+font-size: 18px;
+font-family: $font_jp;
 [type="submit"]{
 width: 160px;
 height: 50px; 
