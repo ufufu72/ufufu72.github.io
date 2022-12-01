@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Webサイト関連に転職するためのポートフォリオです。
+よろしくお願い致します。">
+<title>Portfolio | 岩田 陽子</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" 
+rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="shortcut icon" href="../favicon.png">
+</head>
+<body id="top">
+<header>
+<h1>Portfolio</h1>
+<nav id="g_nav">
+<ul>
+<li><a href="../">Top</a></li>
+<li><a href="../index.html#works">Works</a>
+<div class="drop_menu">
+<a href="../index.html#web_design"><p>Web Design</p></a>
+<a href="../index.html#graphic_design"><p>Graphic Design</p></a>
+<a href="../index.html#codepen"><p>Codepen</p></a>
+</div><!-- /.drop_menu -->
+</li>
+<li><a href="../skills/">Skills</a></li>
+<li><a href="../about/">About</a></li>
+</ul>
+</nav>
+
+<nav id="g_nav_sp">
+<ul>
+<li><a href="../">Top</a></li>
+<li><a href="../index.html#works">Works</a></li>
+<li><a href="../skills/">Skills</a></li>
+<li><a href="../about/">About</a></li>
+</ul>
+</nav>
+<p id="menu_btn"><span></span></p>
+</header>
+
+
+<div class="fg_title">
+<div class="fg_inner">
+<h2>2022.7月制作 Furniture</h2>
+<img src="../img/figma.png" alt="Figmaのアイコン">
+</div><!-- /.fg_inner -->
+<dl>
+<dt>カラーコード</dt>
+<dd><img src="../img/furniture_color_bar.webp" alt="デザインカンプのカラーコード"></dd>
+<dt>フォント</dt>
+<dd>BIZ UDPMincho&emsp;BIZ UDPGothic</dd>
+<dt>カンプの制作期間</dt>
+<dd>2日間</dd>
+</dl>
+</div><!-- /.fg_title -->
+
+<div class="fg_wrapper">    
+<h4>【Top】</h4>  
+<h4 class="fg_sub_title">【PC/Top】</h4>  
+<div class="fg_inner">    
+<img class="pc_img" src="../img/Furniture_pc.jpg" alt="家具のECサイトのパソコン用トップ画面のカンプ">
+<h4 class="fg_sub_title">【SP/Top】</h4>
+<img class="sp_img" src="../img/Furniture_sp.jpg" alt="紅茶のECサイトのスマートフォン用トップ画面のカンプ">
+</div><!-- /.fg_inner -->
+</div><!--/.fg_wrapper -->
+
+<footer>
+<nav class="f_nav">
+<ul>
+<li><a href="../">Top</a></li>
+<li><a href="../index.html#works">Works</a>
+<div class="drop_menu">
+<a href="../index.html#web_design"><p>Web Design</p></a>
+<a href="../index.html#graphic_design"><p>Graphic Design</p></a>
+<a href="../index.html#codepen"><p>Codepen</p></a>
+</div><!-- /.drop_menu -->
+</li>
+<li><a href="../skills/">Skills</a></li>
+<li><a href="../about/">About</a></li>
+</ul>
+</nav>
+
+<div class="f_name">
+<p><small>&copy;Yoko&ensp;Iwata</small></p>
+</div><!-- /.f_name -->
+</footer>
+    
+<div class="button"><span>Top</span></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script>
+    
+$(function(){ 
+
+/* to-top */    
+var btn = $('.button');
+$(window).on('load scroll', function(){
+if($(this).scrollTop() > 300) {
+btn.addClass('active');
+}else{
+btn.removeClass('active');
+}
+});
+    
+btn.on('click',function () {
+$('body,html').animate({
+scrollTop: 0
+});
+});
+
+/* ハンバーガー */
+$('#menu_btn').on('click',function(){ 
+$(this).toggleClass('active');
+$('#g_nav_sp').fadeToggle(300);
+$('#top').toggleClass('scl');
+});
+$('#g_nav_sp a').on('click',function(){
+$('#menu_btn').removeClass('active');
+$('#g_nav_sp').fadeOut(300);  
+$('#top').removeClass('scl');
+});
+});
+
+</script>
+
+</body>
+</html>
